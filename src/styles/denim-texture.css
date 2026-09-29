@@ -1,0 +1,220 @@
+/* ===================================================================
+   DENIM TEXTURE, HARDWARE & SELVEDGE CRAFT UTILITIES
+   Realistic tactile fabric simulation without heavyweight bitmap assets
+   =================================================================== */
+
+/* 1. Heavyweight Twill Weave Denim Background */
+.bg-denim-twill {
+  background-color: var(--color-primary);
+  background-image: 
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0.035) 1.5px,
+      transparent 1.5px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(14, 22, 36, 0.45) 0px,
+      rgba(14, 22, 36, 0.45) 1.5px,
+      transparent 1.5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(45, 78, 126, 0.4) 0%,
+      rgba(22, 36, 60, 0.85) 75%,
+      var(--color-neutral) 100%
+    );
+  background-attachment: fixed;
+}
+
+/* 2. Dark Wash Contrast Denim */
+.bg-denim-dark-wash {
+  background-color: var(--color-dark-wash);
+  background-image: 
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1.5px,
+      transparent 1.5px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(10, 16, 26, 0.5) 0px,
+      rgba(10, 16, 26, 0.5) 1.5px,
+      transparent 1.5px,
+      transparent 4px
+    );
+}
+
+/* 3. Authentic Leather Patch Utility */
+.leather-patch {
+  background-color: var(--color-leather);
+  background-image: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.35) 0%, transparent 60%),
+    repeating-linear-gradient(
+      15deg,
+      rgba(0, 0, 0, 0.04) 0px,
+      rgba(0, 0, 0, 0.04) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  border: 2px dashed rgba(240, 195, 109, 0.7);
+  box-shadow: var(--shadow-leather);
+  position: relative;
+  border-radius: var(--radius-base);
+  color: var(--color-canvas-light);
+}
+
+.leather-patch::before,
+.leather-patch::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e6a76e, var(--color-rivet-copper) 60%, #4a2206 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5), inset 0 0 1px rgba(0,0,0,0.8);
+}
+.leather-patch::before { top: 6px; left: 6px; }
+.leather-patch::after { bottom: 6px; right: 6px; }
+
+/* 4. Industrial Copper Rivet Detail */
+.copper-rivet {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #F5B888, var(--color-rivet-copper) 50%, #4A2207 95%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.copper-rivet::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #3B1B06;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.8);
+}
+
+/* 5. Authentic Selvedge ID Red Ticker Line */
+.selvedge-tape {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #EFEFE9;
+  color: #1A2B45;
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  border: 1px solid #D5D5CD;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.selvedge-tape::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-selvedge-red);
+}
+
+.selvedge-tape-right::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-selvedge-red);
+}
+
+/* 6. Gold Chain-Stitch Border */
+.stitched-card {
+  background: var(--color-canvas-card);
+  border: 1px solid rgba(220, 179, 92, 0.18);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.stitched-card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: var(--stitch-gold);
+  border-radius: calc(var(--radius-base) - 2px);
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast);
+}
+
+.stitched-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(220, 179, 92, 0.45);
+}
+
+.stitched-card:hover::before {
+  opacity: 1;
+}
+
+/* Corner Rivets (Absolute Positioning on Cards) */
+.card-riveted {
+  position: relative;
+}
+
+.card-riveted .corner-rivet {
+  position: absolute;
+  z-index: 5;
+}
+
+.card-riveted .corner-rivet.top-left { top: 12px; left: 12px; }
+.card-riveted .corner-rivet.top-right { top: 12px; right: 12px; }
+.card-riveted .corner-rivet.bottom-left { bottom: 12px; left: 12px; }
+.card-riveted .corner-rivet.bottom-right { bottom: 12px; right: 12px; }
+
+/* 7. Stitched Divider */
+.stitch-divider {
+  width: 100%;
+  height: 2px;
+  border-bottom: 2px dashed var(--color-thread-gold);
+  opacity: 0.55;
+  margin: var(--space-8) 0;
+}
+
+/* 8. Metal Button Stud / Badge */
+.brass-stamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  background: rgba(220, 179, 92, 0.12);
+  border: 1px solid rgba(220, 179, 92, 0.35);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}

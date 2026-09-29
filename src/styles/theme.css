@@ -1,0 +1,69 @@
+/* ===================================================================
+   SMRITI SETU - DESIGN TOKENS & MUSEUM THEME SYSTEM
+   SIH 2026 Problem Statement SIH26096: Digital Heritage Archive
+   Dedicated to Dr. B. R. Ambedkar
+   =================================================================== */
+
+@import './variables.css';
+@import './denim-texture.css';
+
+:root {
+  /* Core Ambedkar Blue & Museum Palette */
+  --color-ambedkar-blue: #1E3A8A;
+  --color-indigo-wash: #223C63;
+  --color-dark-wash: #1A2B45;
+  --color-kiosk-night: #0B132B;
+  --color-parchment: #FBF9F4;
+  --color-parchment-warm: #F4EEDC;
+  --color-thread-gold: #f0c36d;
+  --color-brass-accent: #DCB35C;
+  --color-rivet-copper: #B87333;
+  --color-leather-brown: #8B4513;
+  --color-selvedge-red: #C93B2B;
+  --color-charcoal: #1E293B;
+  --color-charcoal-muted: #64748B;
+  --color-ashoka-wheel: #1B365D;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Roboto Slab', 'Noto Serif Devanagari', Georgia, serif;
+  --font-sans: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Tamil', 'Noto Sans Bengali', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Kiosk Touch Targets */
+  --touch-target-min: 48px;
+  --touch-target-kiosk: 64px;
+}
+
+/* Museum Day Theme (Parchment & Deep Indigo) */
+[data-theme='museum-day'] {
+  --bg-app: var(--color-parchment);
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --text-main: var(--color-charcoal);
+  --text-muted: var(--color-charcoal-muted);
+  --border-stitch: 1.5px dashed var(--color-brass-accent);
+}
+
+/* Kiosk Night Theme (Deep Indigo Wash & Selvedge Contrast) */
+[data-theme='kiosk-night'], :root {
+  --bg-app: var(--color-indigo-wash);
+  --bg-surface: var(--color-dark-wash);
+  --bg-card: var(--color-dark-wash);
+  --text-main: #FFFFFF;
+  --text-muted: #B8C8DF;
+  --border-stitch: 1.5px dashed var(--color-thread-gold);
+}
+
+/* Kiosk Mode Rules: Disable text select, enlarge touch targets */
+body.kiosk-mode {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  cursor: default;
+}
+
+body.kiosk-mode button,
+body.kiosk-mode a,
+body.kiosk-mode input {
+  min-height: var(--touch-target-kiosk);
+}
