@@ -190,20 +190,24 @@ export const ArchiveExplorer: React.FC = () => {
   const allTopics = ['Caste', 'Constitution', 'Economics', 'Labour', 'Civil Rights', 'Buddhism', 'Democracy'];
 
   return (
-    <div className="bg-denim-twill min-h-screen text-[#B8C8DF] pb-24">
+    <div className="bg-[#0F172A] min-h-screen text-slate-300 pb-24">
       {/* Top Header Strip */}
-      <div className="bg-[#121E33] border-b border-[#DCB35C]/25 py-8">
-        <div className="site-container">
+      <div className="bg-[#152033] border-b border-slate-700/60 py-10">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="selvedge-tape">SIH26096 ARCHIVAL CATALOG</span>
-                <span className="brass-stamp text-[10px]">2,400+ DIGITIZED MANUSCRIPTS</span>
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="px-2.5 py-1 rounded-md bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-xs font-semibold uppercase tracking-wider">
+                  Archival Catalog
+                </span>
+                <span className="px-2.5 py-1 rounded-md bg-white/[0.06] text-slate-400 font-mono text-xs tracking-wider">
+                  2,400+ Digitized Manuscripts
+                </span>
               </div>
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-white">
-                Archival Explorer <span className="text-[#DCB35C] font-normal">| दस्तावेज संग्रह</span>
+              <h1 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                Archival Explorer <span className="text-[#DCB35C] font-normal text-2xl">| दस्तावेज संग्रह</span>
               </h1>
-              <p className="text-xs md:text-sm text-[#B8C8DF] mt-1">
+              <p className="text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed">
                 Deep-zoom original historical scans, verified OCR transcripts, and multilingual translations.
               </p>
             </div>
@@ -223,14 +227,9 @@ export const ArchiveExplorer: React.FC = () => {
       </div>
 
       {/* Main Container */}
-      <div className="site-container pt-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-8">
         {/* Search & Filter Bar */}
-        <div className="bg-[#1A2B45] border-2 border-dashed border-[#DCB35C]/40 rounded-2xl p-5 mb-8 shadow-xl card-riveted">
-          <span className="copper-rivet corner-rivet top-left" />
-          <span className="copper-rivet corner-rivet top-right" />
-          <span className="copper-rivet corner-rivet bottom-left" />
-          <span className="copper-rivet corner-rivet bottom-right" />
-
+        <div className="bg-[#1E293B] border border-slate-700/80 rounded-2xl p-6 mb-8 shadow-xl">
           {/* Search Input Row */}
           <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-3 mb-5">
             <div className="relative flex-1">
@@ -366,10 +365,10 @@ export const ArchiveExplorer: React.FC = () => {
             <p className="font-mono text-sm text-[#DCB35C]">RETRIEVING ARCHIVAL FACSIMILES...</p>
           </div>
         ) : documents.length === 0 ? (
-          <div className="text-center py-16 bg-[#1A2B45] rounded-2xl border-2 border-dashed border-[#DCB35C]/30 p-8">
-            <BookOpen className="w-12 h-12 text-[#7C90AF] mx-auto mb-3" />
+          <div className="text-center py-16 bg-[#1E293B] rounded-2xl border border-slate-700/60 p-8">
+            <BookOpen className="w-12 h-12 text-slate-500 mx-auto mb-3" />
             <h3 className="font-serif text-lg font-bold text-white">No archival records match your criteria</h3>
-            <p className="text-xs text-[#B8C8DF] mt-1 mb-4">
+            <p className="text-sm text-slate-400 mt-1 mb-4">
               Try adjusting your query or expanding the year range.
             </p>
             <Button onClick={() => { setSelectedType('all'); setSelectedTopic('all'); setYearRange([1891, 1956]); setSearchQuery(''); }} variant="secondary">
@@ -379,31 +378,32 @@ export const ArchiveExplorer: React.FC = () => {
         ) : viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {documents.map((doc) => (
-              <Card
+              <div
                 key={doc.id}
-                variant="riveted"
-                className="bg-[#1A2B45] hover:bg-[#223C63] transition-all duration-300 flex flex-col justify-between p-5 cursor-pointer group"
+                className="bg-[#1E293B] hover:bg-[#23354F] border border-slate-700/60 hover:border-slate-500/80 rounded-xl transition-all duration-200 flex flex-col justify-between p-5 cursor-pointer group shadow-lg hover:shadow-xl"
                 onClick={() => setSelectedDoc(doc)}
               >
                 <div>
-                  <div className="h-48 w-full rounded-xl overflow-hidden mb-4 relative bg-[#121E33]">
+                  <div className="h-48 w-full rounded-lg overflow-hidden mb-4 relative bg-[#0F172A]">
                     <img
                       src={doc.thumbnail}
                       alt={doc.title}
                       className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-2 left-2 flex gap-1">
-                      <span className="selvedge-tape text-[9px] uppercase">{doc.type}</span>
+                    <div className="absolute top-2.5 left-2.5 flex gap-1">
+                      <span className="bg-[#0F172A]/90 px-2 py-0.5 rounded text-[11px] font-mono text-slate-300 uppercase tracking-wider">
+                        {doc.type}
+                      </span>
                     </div>
-                    <div className="absolute top-2 right-2">
-                      <span className="bg-[#0E1624]/90 px-2 py-0.5 rounded text-[10px] font-mono text-[#f0c36d] border border-[#DCB35C]/30">
+                    <div className="absolute top-2.5 right-2.5">
+                      <span className="bg-[#0F172A]/90 px-2 py-0.5 rounded text-[11px] font-mono text-[#DCB35C] border border-slate-700/60">
                         {doc.year}
                       </span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="font-mono text-[10px] text-[#DCB35C]">{doc.accessionNumber}</span>
+                    <span className="font-mono text-xs text-[#DCB35C]">{doc.accessionNumber}</span>
                   </div>
 
                   <h3 className="font-serif text-lg font-bold text-white group-hover:text-[#DCB35C] transition-colors line-clamp-2 mb-1">
@@ -411,12 +411,12 @@ export const ArchiveExplorer: React.FC = () => {
                   </h3>
 
                   {doc.originalTitle && (
-                    <p className="font-serif text-xs text-[#f0c36d] opacity-90 mb-2">
+                    <p className="font-serif text-xs text-slate-400 italic mb-2">
                       {doc.originalTitle}
                     </p>
                   )}
 
-                  <p className="text-xs text-[#B8C8DF] line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed mb-4">
                     {doc.summary}
                   </p>
                 </div>
@@ -424,16 +424,16 @@ export const ArchiveExplorer: React.FC = () => {
                 <div>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {doc.tags.slice(0, 3).map((tag, tIdx) => (
-                      <span key={tIdx} className="px-2 py-0.5 rounded bg-[#121E33] text-[10px] font-mono text-[#B8C8DF] border border-[#DCB35C]/20">
+                      <span key={tIdx} className="px-2 py-0.5 rounded bg-[#152033] text-[11px] font-mono text-slate-300 border border-slate-700/50">
                         #{tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="pt-3 border-t border-[#DCB35C]/20 flex items-center justify-between">
-                    <span className="brass-stamp text-[10px]">
-                      <ShieldCheck className="w-3 h-3 text-[#f0c36d]" />
-                      {doc.citationsCount} Citations
+                  <div className="pt-3 border-t border-slate-700/60 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5 text-xs text-slate-400">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{doc.citationsCount} Citations</span>
                     </span>
                     <span className="text-xs font-mono text-[#DCB35C] group-hover:translate-x-1 transition-transform flex items-center gap-1">
                       <span>Examine Scans</span>
@@ -441,7 +441,7 @@ export const ArchiveExplorer: React.FC = () => {
                     </span>
                   </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         ) : (
@@ -450,29 +450,31 @@ export const ArchiveExplorer: React.FC = () => {
               <div
                 key={doc.id}
                 onClick={() => setSelectedDoc(doc)}
-                className="bg-[#1A2B45] hover:bg-[#223C63] border-2 border-dashed border-[#DCB35C]/30 hover:border-[#DCB35C] rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-colors cursor-pointer card-riveted"
+                className="bg-[#1E293B] hover:bg-[#23354F] border border-slate-700/60 hover:border-slate-500/80 rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-colors cursor-pointer shadow-md hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-[#121E33] hidden sm:block">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-[#0F172A] hidden sm:block">
                     <img src={doc.thumbnail} alt={doc.title} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="selvedge-tape text-[9px] uppercase">{doc.type}</span>
-                      <span className="font-mono text-[10px] text-[#DCB35C]">{doc.year}</span>
-                      <span className="font-mono text-[10px] text-[#7C90AF]">{doc.accessionNumber}</span>
+                      <span className="bg-[#0F172A] px-2 py-0.5 rounded text-[10px] font-mono text-slate-300 uppercase tracking-wider">
+                        {doc.type}
+                      </span>
+                      <span className="font-mono text-xs text-[#DCB35C]">{doc.year}</span>
+                      <span className="font-mono text-xs text-slate-400">{doc.accessionNumber}</span>
                     </div>
                     <h3 className="font-serif text-lg font-bold text-white hover:text-[#DCB35C]">
                       {doc.title}
                     </h3>
-                    <p className="text-xs text-[#B8C8DF] line-clamp-1 mt-0.5">{doc.summary}</p>
+                    <p className="text-xs text-slate-400 line-clamp-1 mt-0.5">{doc.summary}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 shrink-0">
-                  <span className="brass-stamp text-[10px]">
-                    <ShieldCheck className="w-3 h-3 text-[#f0c36d]" />
-                    {doc.citationsCount} citations
+                  <span className="flex items-center gap-1 text-xs text-slate-400">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{doc.citationsCount} citations</span>
                   </span>
                   <Button variant="primary" size="sm">
                     Open Scans
@@ -489,19 +491,16 @@ export const ArchiveExplorer: React.FC = () => {
            =================================================================== */}
       {selectedDoc && (
         <div className="fixed inset-0 z-[350] flex items-center justify-center p-2 sm:p-4 bg-[#0A111C]/90 backdrop-blur-md">
-          <div className="relative w-full max-w-6xl h-[92vh] bg-[#1A2B45] border-2 border-dashed border-[#DCB35C] rounded-2xl shadow-2xl flex flex-col overflow-hidden card-riveted">
-            <span className="copper-rivet corner-rivet top-left" />
-            <span className="copper-rivet corner-rivet top-right" />
-            <span className="copper-rivet corner-rivet bottom-left" />
-            <span className="copper-rivet corner-rivet bottom-right" />
-
+          <div className="relative w-full max-w-6xl h-[92vh] bg-[#1E293B] border border-slate-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
             {/* Modal Header */}
-            <div className="p-4 sm:p-6 bg-[#121E33] border-b border-[#DCB35C]/30 flex flex-wrap items-center justify-between gap-4">
+            <div className="p-4 sm:p-6 bg-[#152033] border-b border-slate-700/60 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="selvedge-tape text-[9px] uppercase">{selectedDoc.type}</span>
+                  <span className="bg-[#0F172A] px-2 py-0.5 rounded text-[10px] font-mono text-slate-300 uppercase tracking-wider">
+                    {selectedDoc.type}
+                  </span>
                   <span className="font-mono text-xs text-[#DCB35C]">{selectedDoc.accessionNumber}</span>
-                  <span className="font-mono text-xs text-[#7C90AF]">• {selectedDoc.year}</span>
+                  <span className="font-mono text-xs text-slate-400">• {selectedDoc.year}</span>
                 </div>
                 <h2 className="font-serif text-lg sm:text-xl font-bold text-white">
                   {selectedDoc.title}
@@ -522,23 +521,23 @@ export const ArchiveExplorer: React.FC = () => {
                     setSelectedDoc(null);
                     setTranslatedText(null);
                   }}
-                  className="p-2 text-[#B8C8DF] hover:text-[#DCB35C] rounded-lg transition-colors"
+                  className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                   aria-label="Close modal"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
             {/* Viewer Controls Toolbar */}
-            <div className="px-4 py-2.5 bg-[#0E1624] border-b border-[#DCB35C]/20 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <div className="px-4 py-2.5 bg-[#0F172A] border-b border-slate-700/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
               <div className="flex items-center gap-2">
                 {/* View Mode Toggle: Scan | OCR | Split */}
-                <div className="flex bg-[#1A2B45] p-0.5 rounded border border-[#DCB35C]/30">
+                <div className="flex bg-[#1E293B] p-0.5 rounded border border-slate-700/60">
                   <button
                     onClick={() => setActiveTab('scan')}
                     className={`px-3 py-1 rounded transition-colors ${
-                      activeTab === 'scan' ? 'bg-[#DCB35C] text-[#0E1624] font-bold' : 'text-[#B8C8DF]'
+                      activeTab === 'scan' ? 'bg-[#DCB35C] text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     Original Scan
@@ -546,7 +545,7 @@ export const ArchiveExplorer: React.FC = () => {
                   <button
                     onClick={() => setActiveTab('split')}
                     className={`px-3 py-1 rounded transition-colors ${
-                      activeTab === 'split' ? 'bg-[#DCB35C] text-[#0E1624] font-bold' : 'text-[#B8C8DF]'
+                      activeTab === 'split' ? 'bg-[#DCB35C] text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     Side-by-Side
@@ -554,7 +553,7 @@ export const ArchiveExplorer: React.FC = () => {
                   <button
                     onClick={() => setActiveTab('ocr')}
                     className={`px-3 py-1 rounded transition-colors ${
-                      activeTab === 'ocr' ? 'bg-[#DCB35C] text-[#0E1624] font-bold' : 'text-[#B8C8DF]'
+                      activeTab === 'ocr' ? 'bg-[#DCB35C] text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     Verified OCR
@@ -562,7 +561,7 @@ export const ArchiveExplorer: React.FC = () => {
                 </div>
 
                 {/* Page Nav */}
-                <div className="flex items-center gap-1.5 ml-2 text-[#B8C8DF]">
+                <div className="flex items-center gap-1.5 ml-2 text-slate-400">
                   <span>PAGE {activePageIdx + 1} OF {selectedDoc.scanPages.length}</span>
                 </div>
               </div>
@@ -571,27 +570,27 @@ export const ArchiveExplorer: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleZoomIn}
-                  className="p-1.5 bg-[#1A2B45] hover:bg-[#223C63] text-white rounded border border-[#DCB35C]/30"
+                  className="p-1.5 bg-[#1E293B] hover:bg-[#283850] text-white rounded border border-slate-700/60"
                   title="Zoom In"
                 >
                   <ZoomIn className="w-4 h-4 text-[#DCB35C]" />
                 </button>
                 <button
                   onClick={handleZoomOut}
-                  className="p-1.5 bg-[#1A2B45] hover:bg-[#223C63] text-white rounded border border-[#DCB35C]/30"
+                  className="p-1.5 bg-[#1E293B] hover:bg-[#283850] text-white rounded border border-slate-700/60"
                   title="Zoom Out"
                 >
                   <ZoomOut className="w-4 h-4 text-[#DCB35C]" />
                 </button>
                 <button
                   onClick={handleResetZoom}
-                  className="p-1.5 bg-[#1A2B45] hover:bg-[#223C63] text-white rounded border border-[#DCB35C]/30"
+                  className="p-1.5 bg-[#1E293B] hover:bg-[#283850] text-white rounded border border-slate-700/60"
                   title="Reset Zoom"
                 >
                   <RotateCcw className="w-4 h-4 text-[#DCB35C]" />
                 </button>
 
-                <div className="h-4 w-px bg-[#DCB35C]/30 mx-1" />
+                <div className="h-4 w-px bg-slate-700 mx-1" />
 
                 {/* Read Aloud Button */}
                 <Button
@@ -609,7 +608,7 @@ export const ArchiveExplorer: React.FC = () => {
                   <select
                     value={targetLang}
                     onChange={(e) => handleTranslate(e.target.value)}
-                    className="bg-[#1A2B45] text-white border border-[#DCB35C]/30 rounded px-2 py-1 text-xs"
+                    className="bg-[#1E293B] text-white border border-slate-700/60 rounded px-2.5 py-1 text-xs"
                   >
                     <option value="en">English</option>
                     <option value="hi">हिन्दी (Hindi)</option>
@@ -620,11 +619,11 @@ export const ArchiveExplorer: React.FC = () => {
             </div>
 
             {/* Viewer Body */}
-            <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-12 bg-[#0A111C]">
+            <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-12 bg-[#0A0F1D]">
               {/* Scan Facsimile Viewer Area */}
               {(activeTab === 'scan' || activeTab === 'split') && (
                 <div
-                  className={`${activeTab === 'split' ? 'md:col-span-6' : 'md:col-span-12'} h-full relative overflow-hidden bg-[#070B12] flex items-center justify-center cursor-grab active:cursor-grabbing border-r border-[#DCB35C]/20`}
+                  className={`${activeTab === 'split' ? 'md:col-span-6' : 'md:col-span-12'} h-full relative overflow-hidden bg-[#050811] flex items-center justify-center cursor-grab active:cursor-grabbing border-r border-slate-700/60`}
                   onMouseDown={handleMouseDown}
                   onMouseMove={handleMouseMove}
                   onMouseUp={handleMouseUp}
@@ -640,12 +639,12 @@ export const ArchiveExplorer: React.FC = () => {
                     <img
                       src={selectedDoc.scanPages[activePageIdx]?.scanUrl || selectedDoc.thumbnail}
                       alt="Archival Scan"
-                      className="max-h-[70vh] object-contain shadow-2xl rounded border border-[#DCB35C]/30"
+                      className="max-h-[70vh] object-contain shadow-2xl rounded border border-slate-700/60"
                     />
                   </div>
 
                   {/* Watermark & Provenance stamp */}
-                  <div className="absolute bottom-3 left-3 bg-[#0E1624]/90 px-3 py-1.5 rounded border border-[#DCB35C]/30 font-mono text-[10px] text-[#DCB35C] pointer-events-none">
+                  <div className="absolute bottom-3 left-3 bg-[#0F172A]/90 px-3 py-1.5 rounded border border-slate-700/60 font-mono text-[10px] text-[#DCB35C] pointer-events-none">
                     FACSIMILE PROVENANCE: {selectedDoc.sourceArchive}
                   </div>
                 </div>
@@ -653,14 +652,14 @@ export const ArchiveExplorer: React.FC = () => {
 
               {/* OCR Text & Translation Area */}
               {(activeTab === 'ocr' || activeTab === 'split') && (
-                <div className={`${activeTab === 'split' ? 'md:col-span-6' : 'md:col-span-12'} h-full overflow-y-auto p-6 bg-[#1A2B45] space-y-6`}>
+                <div className={`${activeTab === 'split' ? 'md:col-span-6' : 'md:col-span-12'} h-full overflow-y-auto p-6 bg-[#1E293B] space-y-6`}>
                   {/* OCR Verification Banner */}
-                  <div className="p-3 bg-[#121E33] rounded-lg border border-[#DCB35C]/30 flex items-center justify-between text-xs">
+                  <div className="p-3 bg-[#152033] rounded-lg border border-slate-700/60 flex items-center justify-between text-xs">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-                      <span className="font-mono text-[#10B981]">100% VERIFIED BY CURATOR</span>
+                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                      <span className="font-mono text-emerald-400">100% VERIFIED BY CURATOR</span>
                     </div>
-                    <span className="font-mono text-[10px] text-[#7C90AF]">{selectedDoc.verificationHash.slice(0, 18)}...</span>
+                    <span className="font-mono text-[10px] text-slate-400">{selectedDoc.verificationHash.slice(0, 18)}...</span>
                   </div>
 
                   {/* OCR Transcribed Text */}
@@ -668,21 +667,21 @@ export const ArchiveExplorer: React.FC = () => {
                     <h4 className="font-mono text-xs text-[#DCB35C] uppercase tracking-wider mb-2">
                       VERIFIED TRANSCRIPTION (PAGE {activePageIdx + 1})
                     </h4>
-                    <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/20 font-serif text-sm md:text-base text-white leading-relaxed whitespace-pre-line shadow-inner">
+                    <div className="p-4 bg-[#152033] rounded-xl border border-slate-700/60 font-serif text-sm md:text-base text-white leading-relaxed whitespace-pre-line shadow-inner">
                       {translatedText ? translatedText : selectedDoc.scanPages[activePageIdx]?.ocrText}
                     </div>
                   </div>
 
                   {/* Document Archival Metadata */}
-                  <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/20 space-y-2 text-xs">
+                  <div className="p-4 bg-[#152033] rounded-xl border border-slate-700/60 space-y-2 text-xs">
                     <div className="font-mono text-[10px] text-[#DCB35C] uppercase tracking-wider mb-2">
                       ARCHIVAL PROVENANCE METADATA
                     </div>
-                    <div className="grid grid-cols-2 gap-2 text-[#B8C8DF]">
-                      <div><strong>Accession:</strong> {selectedDoc.accessionNumber}</div>
-                      <div><strong>Date:</strong> {selectedDoc.date}</div>
-                      <div><strong>Source:</strong> {selectedDoc.sourceArchive}</div>
-                      <div><strong>Rights:</strong> {selectedDoc.rights}</div>
+                    <div className="grid grid-cols-2 gap-2 text-slate-300">
+                      <div><strong className="text-white">Accession:</strong> {selectedDoc.accessionNumber}</div>
+                      <div><strong className="text-white">Date:</strong> {selectedDoc.date}</div>
+                      <div><strong className="text-white">Source:</strong> {selectedDoc.sourceArchive}</div>
+                      <div><strong className="text-white">Rights:</strong> {selectedDoc.rights}</div>
                     </div>
                   </div>
                 </div>

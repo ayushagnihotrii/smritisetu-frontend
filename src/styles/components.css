@@ -1,16 +1,14 @@
 /* ===================================================================
-   SMRITI SETU COMPONENT ARCHITECTURE
-   Faithful to Design Tokens: Subtly rounded 0.5rem, Tactile physics,
-   Dashed borders, Gold threads, No emojis, No outer glows.
+   SMRITI SETU — COMPONENT STYLES (Clean & Minimal)
    =================================================================== */
 
-/* --- 1. Buttons --- */
+/* --- Buttons --- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 12px 22px;
+  padding: 10px 20px;
   font-family: var(--font-body);
   font-size: var(--text-small);
   font-weight: 600;
@@ -20,226 +18,79 @@
   cursor: pointer;
   border: none;
   outline: none;
-  position: relative;
   user-select: none;
-  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .btn:focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
-/* Primary Button */
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-charcoal-offblack);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
   background-color: #c9a04a;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:active {
-  transform: translateY(1px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-  background-color: #b8913e;
+  transform: translateY(0);
 }
 
-/* Secondary / Ghost Button */
 .btn-secondary {
   background-color: transparent;
   color: var(--color-secondary);
-  border: 1.5px solid rgba(220, 179, 92, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(220, 179, 92, 0.1);
-  border-color: var(--color-accent);
-  transform: translateY(-1px);
+  background-color: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.4);
 }
 
-.btn-secondary:active {
-  transform: translateY(1px);
-  background-color: rgba(220, 179, 92, 0.18);
-}
-
-/* Leather Stamp Button */
-.btn-leather {
-  background-color: var(--color-leather);
-  color: var(--color-canvas-light);
-  border: 1.5px dashed rgba(240, 195, 109, 0.6);
-  box-shadow: var(--shadow-leather);
-}
-
-.btn-leather:hover {
-  background-color: #783a0e;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-}
-
-.btn-leather:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-}
-
-/* --- 2. Navigation --- */
+/* --- Navigation --- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky-nav);
-  background: rgba(26, 43, 69, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px dashed rgba(240, 195, 109, 0.35);
-  transition: all var(--transition-normal);
-}
-
-.nav-inner {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0.85rem var(--container-padding);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-}
-
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  text-decoration: none;
-  color: var(--color-secondary);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
 }
 
 .brand-crest {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-neutral);
-  border: 1.5px dashed var(--color-accent);
-  border-radius: var(--radius-base);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  background: white;
+  border: 1px solid rgba(220, 179, 92, 0.3);
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
-  transition: transform var(--transition-fast);
+  overflow: hidden;
+  padding: 2px;
 }
 
-.brand-link:hover .brand-crest {
-  transform: scale(1.04);
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-secondary);
-  line-height: 1.1;
-}
-
-.brand-subtitle {
-  font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  color: var(--color-thread-gold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-link {
-  font-family: var(--font-body);
-  font-size: var(--text-small);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  position: relative;
-  padding: 0.4rem 0.2rem;
-  transition: color var(--transition-fast);
-}
-
-.nav-link:hover {
-  color: var(--color-secondary);
-}
-
-.nav-link.active {
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  border-radius: 1px;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-/* --- 3. Inputs & Forms --- */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--space-4);
-  position: relative;
-}
-
-.form-label {
-  font-family: var(--font-body);
-  font-size: var(--text-small);
-  font-weight: 500;
-  color: var(--color-secondary);
-  margin-bottom: var(--space-2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.form-label .label-tag {
-  font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  color: var(--color-thread-gold);
-}
-
+/* --- Inputs --- */
 .form-input,
 .form-textarea,
 .form-select {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px 14px;
   background-color: var(--color-dark-wash);
   color: var(--color-secondary);
   font-family: var(--font-body);
   font-size: var(--text-body);
-  border: 1px solid rgba(220, 179, 92, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: var(--radius-base);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast);
 }
 
 .form-input:focus,
@@ -247,7 +98,7 @@
 .form-select:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 2px var(--color-accent), inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(220, 179, 92, 0.15);
 }
 
 .form-input::placeholder,
@@ -255,76 +106,20 @@
   color: var(--color-text-dim);
 }
 
-.form-error {
-  font-family: var(--font-body);
-  font-size: var(--text-small);
-  color: #E55353;
-  margin-top: var(--space-1);
-  display: none;
-}
-
-.form-group.has-error .form-input {
-  border-color: #E55353;
-}
-
-.form-group.has-error .form-error {
-  display: block;
-}
-
-/* --- 4. Skeletons & Shimmers --- */
-.skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(26, 43, 69, 0.8) 0%,
-    rgba(45, 78, 126, 0.9) 50%,
-    rgba(26, 43, 69, 0.8) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
-  border-radius: var(--radius-base);
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* --- 5. Empty State --- */
+/* --- Empty State --- */
 .empty-state {
   text-align: center;
   padding: var(--space-12) var(--space-6);
   background: var(--color-dark-wash);
-  border: 1.5px dashed rgba(220, 179, 92, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: var(--radius-base);
 }
 
-.empty-state-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto var(--space-4);
-  color: var(--color-thread-gold);
-  opacity: 0.8;
-}
-
-.empty-state-title {
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  color: var(--color-secondary);
-  margin-bottom: var(--space-2);
-}
-
-.empty-state-desc {
-  font-size: var(--text-small);
-  color: var(--color-text-muted);
-  max-width: 44ch;
-  margin: 0 auto var(--space-6);
-}
-
-/* --- 6. Modal Dialog --- */
+/* --- Modal --- */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(14, 22, 36, 0.85);
+  background: rgba(2, 6, 23, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: var(--z-modal);
@@ -344,16 +139,15 @@
 
 .modal-container {
   background: var(--color-dark-wash);
-  border: 2px dashed var(--color-thread-gold);
-  border-radius: var(--radius-base);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-elevated);
   width: 100%;
   max-width: 720px;
   max-height: 90vh;
   overflow-y: auto;
-  position: relative;
   padding: var(--space-8);
-  transform: translateY(16px);
+  transform: translateY(12px);
   transition: transform var(--transition-normal);
 }
 
@@ -361,55 +155,30 @@
   transform: translateY(0);
 }
 
-.modal-close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--transition-fast);
-}
-
-.modal-close-btn:hover {
-  color: var(--color-accent);
-}
-
-/* --- 7. Toast Notification --- */
-.toast-container {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: var(--z-toast);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  pointer-events: none;
-}
-
+/* --- Toast --- */
 .toast {
   pointer-events: auto;
-  background: var(--color-deep-indigo);
-  border: 1.5px dashed var(--color-accent);
+  background: var(--color-dark-wash);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   color: var(--color-secondary);
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1.15rem;
   border-radius: var(--radius-base);
   box-shadow: var(--shadow-elevated);
-  font-family: var(--font-body);
   font-size: var(--text-small);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  animation: toastIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 0.65rem;
 }
 
-@keyframes toastIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+/* --- Kiosk --- */
+body.kiosk-mode {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+body.kiosk-mode button,
+body.kiosk-mode a,
+body.kiosk-mode input {
+  min-height: 64px;
 }

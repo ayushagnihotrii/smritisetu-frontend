@@ -202,26 +202,30 @@ export const Timeline: React.FC = () => {
   ];
 
   return (
-    <div className="bg-denim-twill min-h-screen text-[#B8C8DF] flex flex-col justify-between">
+    <div className="bg-[#0F172A] min-h-screen text-slate-300 flex flex-col justify-between">
       {/* Top Header */}
-      <div className="bg-[#121E33] border-b border-[#DCB35C]/25 py-4">
-        <div className="site-container flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-[#152033] border-b border-slate-700/60 py-4">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="selvedge-tape text-[9px]">3D INTERACTIVE JOURNEY</span>
-              <span className="brass-stamp text-[10px]">1891 — 1956</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-[10px] font-semibold uppercase tracking-wider">
+                3D Interactive Journey
+              </span>
+              <span className="px-2.5 py-0.5 rounded bg-white/[0.06] text-slate-400 font-mono text-[10px] tracking-wider">
+                1891 — 1956
+              </span>
             </div>
             <h1 className="font-serif text-2xl md:text-3xl font-bold text-white">
-              Life Timeline of Dr. B. R. Ambedkar <span className="text-[#DCB35C] font-normal">| जीवन यात्रा</span>
+              Life Timeline of Dr. B. R. Ambedkar <span className="text-[#DCB35C] font-normal text-xl">| जीवन यात्रा</span>
             </h1>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex bg-[#1A2B45] p-0.5 rounded-lg border border-[#DCB35C]/30 text-xs font-mono">
+            <div className="flex bg-[#1E293B] p-0.5 rounded-lg border border-slate-700/70 text-xs font-mono">
               <button
                 onClick={() => setViewMode('3d')}
                 className={`px-3 py-1.5 rounded transition-colors ${
-                  viewMode === '3d' ? 'bg-[#DCB35C] text-[#0E1624] font-bold' : 'text-[#B8C8DF]'
+                  viewMode === '3d' ? 'bg-[#DCB35C] text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 3D Perspective
@@ -229,7 +233,7 @@ export const Timeline: React.FC = () => {
               <button
                 onClick={() => setViewMode('2d')}
                 className={`px-3 py-1.5 rounded transition-colors ${
-                  viewMode === '2d' ? 'bg-[#DCB35C] text-[#0E1624] font-bold' : 'text-[#B8C8DF]'
+                  viewMode === '2d' ? 'bg-[#DCB35C] text-slate-950 font-bold' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 2D Accessible View
@@ -249,8 +253,8 @@ export const Timeline: React.FC = () => {
       </div>
 
       {/* Category Tabs */}
-      <div className="bg-[#0E1624] border-b border-[#DCB35C]/20 px-4 py-2">
-        <div className="site-container flex items-center gap-2 overflow-x-auto">
+      <div className="bg-[#0F172A] border-b border-slate-700/60 px-4 py-2.5">
+        <div className="max-w-[1200px] mx-auto flex items-center gap-2 overflow-x-auto">
           {categories.map((cat) => (
             <button
               key={cat.key}
@@ -258,10 +262,10 @@ export const Timeline: React.FC = () => {
                 setActiveCategory(cat.key);
                 setCurrentIdx(0);
               }}
-              className={`px-3 py-1 rounded-full text-xs font-mono whitespace-nowrap transition-colors ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-mono whitespace-nowrap transition-colors ${
                 activeCategory === cat.key
-                  ? 'bg-[#DCB35C] text-[#0E1624] font-bold'
-                  : 'bg-[#1A2B45] text-[#B8C8DF] hover:bg-[#223C63]'
+                  ? 'bg-[#DCB35C] text-slate-950 font-bold shadow-sm'
+                  : 'bg-[#1E293B] text-slate-400 hover:text-white hover:bg-[#283850]'
               }`}
             >
               {cat.label}
@@ -279,35 +283,32 @@ export const Timeline: React.FC = () => {
 
             {/* Floating Live Milestone Card (Left Flank) */}
             {activeEvent && (
-              <div className="absolute left-6 bottom-8 max-w-sm sm:max-w-md bg-[#1A2B45]/95 border-2 border-dashed border-[#DCB35C] rounded-2xl p-6 shadow-2xl backdrop-blur-md card-riveted z-20">
-                <span className="copper-rivet corner-rivet top-left" />
-                <span className="copper-rivet corner-rivet top-right" />
-                <span className="copper-rivet corner-rivet bottom-left" />
-                <span className="copper-rivet corner-rivet bottom-right" />
-
+              <div className="absolute left-6 bottom-8 max-w-sm sm:max-w-md bg-[#1E293B]/95 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md z-20">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="selvedge-tape text-[10px] uppercase">{activeEvent.category}</span>
-                  <span className="font-mono text-xl font-bold text-[#f0c36d]">{activeEvent.year}</span>
+                  <span className="bg-[#0F172A] px-2 py-0.5 rounded text-[10px] font-mono text-slate-300 uppercase tracking-wider">
+                    {activeEvent.category}
+                  </span>
+                  <span className="font-mono text-xl font-bold text-[#DCB35C]">{activeEvent.year}</span>
                 </div>
 
                 <h3 className="font-serif text-xl font-bold text-white mb-1">{activeEvent.title}</h3>
 
-                <div className="flex items-center gap-1.5 text-xs text-[#DCB35C] font-mono mb-3">
-                  <MapPin className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono mb-3">
+                  <MapPin className="w-3.5 h-3.5 text-[#DCB35C]" />
                   <span>{activeEvent.place}</span>
                 </div>
 
-                <p className="text-xs text-[#B8C8DF] leading-relaxed mb-4">
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
                   {activeEvent.summary}
                 </p>
 
                 {activeEvent.quote && (
-                  <blockquote className="p-3 rounded-lg bg-[#121E33] border-l-2 border-[#DCB35C] text-xs font-serif italic text-white mb-4">
+                  <blockquote className="p-3 rounded-lg bg-[#152033] border-l-2 border-[#DCB35C] text-xs font-serif italic text-white mb-4">
                     “{activeEvent.quote}”
                   </blockquote>
                 )}
 
-                <div className="flex items-center justify-between pt-3 border-t border-[#DCB35C]/20">
+                <div className="flex items-center justify-between pt-3 border-t border-slate-700/60">
                   <Button
                     onClick={() => setSelectedEvent(activeEvent)}
                     variant="primary"
@@ -320,7 +321,7 @@ export const Timeline: React.FC = () => {
                   {activeEvent.linkedDocId && (
                     <a
                       href={`/archive?doc=${activeEvent.linkedDocId}`}
-                      className="text-xs font-mono text-[#f0c36d] hover:underline flex items-center gap-1"
+                      className="text-xs font-mono text-[#DCB35C] hover:underline flex items-center gap-1"
                     >
                       <span>Archival Proof &rarr;</span>
                     </a>
@@ -331,26 +332,28 @@ export const Timeline: React.FC = () => {
           </>
         ) : (
           /* 2D Accessible List Fallback for low-end devices */
-          <div className="site-container py-8 w-full max-w-4xl space-y-6">
-            {filteredEvents.map((evt, idx) => (
+          <div className="max-w-[900px] mx-auto px-4 sm:px-6 py-8 w-full space-y-4">
+            {filteredEvents.map((evt) => (
               <div
                 key={evt.id}
                 onClick={() => setSelectedEvent(evt)}
-                className="bg-[#1A2B45] hover:bg-[#223C63] border-2 border-dashed border-[#DCB35C]/30 hover:border-[#DCB35C] rounded-2xl p-6 transition-all cursor-pointer card-riveted shadow-xl"
+                className="bg-[#1E293B] hover:bg-[#23354F] border border-slate-700/60 hover:border-slate-500 rounded-2xl p-6 transition-all cursor-pointer shadow-lg"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DCB35C]/20 pb-3 mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/60 pb-3 mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-2xl font-bold text-[#f0c36d]">{evt.year}</span>
-                    <span className="selvedge-tape text-[10px] uppercase">{evt.category}</span>
+                    <span className="font-mono text-2xl font-bold text-[#DCB35C]">{evt.year}</span>
+                    <span className="bg-[#0F172A] px-2 py-0.5 rounded text-[10px] font-mono text-slate-300 uppercase tracking-wider">
+                      {evt.category}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs text-[#DCB35C] font-mono">
-                    <MapPin className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1 text-xs text-slate-400 font-mono">
+                    <MapPin className="w-3.5 h-3.5 text-[#DCB35C]" />
                     <span>{evt.place}</span>
                   </div>
                 </div>
 
                 <h3 className="font-serif text-lg font-bold text-white mb-2">{evt.title}</h3>
-                <p className="text-xs text-[#B8C8DF] leading-relaxed mb-3">{evt.summary}</p>
+                <p className="text-xs text-slate-300 leading-relaxed mb-3">{evt.summary}</p>
 
                 {evt.quote && (
                   <p className="text-xs font-serif italic text-[#DCB35C]">“{evt.quote}”</p>
@@ -362,12 +365,12 @@ export const Timeline: React.FC = () => {
       </div>
 
       {/* Bottom Timeline Year Scrubber Navigation */}
-      <div className="bg-[#0E1624] border-t-2 border-[#DCB35C]/30 p-4">
-        <div className="site-container flex items-center justify-between gap-4">
+      <div className="bg-[#0F172A] border-t border-slate-700/60 p-4">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
           <button
             onClick={() => navigateToEvent(Math.max(0, currentIdx - 1))}
             disabled={currentIdx === 0}
-            className="p-2.5 bg-[#1A2B45] text-white hover:bg-[#223C63] disabled:opacity-30 rounded-lg border border-[#DCB35C]/30"
+            className="p-2.5 bg-[#1E293B] text-white hover:bg-[#283850] disabled:opacity-30 rounded-lg border border-slate-700/60 transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -380,8 +383,8 @@ export const Timeline: React.FC = () => {
                 onClick={() => navigateToEvent(idx)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                   idx === currentIdx
-                    ? 'bg-[#DCB35C] text-[#0E1624] shadow-md scale-105'
-                    : 'bg-[#1A2B45] text-[#7C90AF] hover:text-white border border-[#DCB35C]/20'
+                    ? 'bg-[#DCB35C] text-slate-950 shadow-md scale-105'
+                    : 'bg-[#1E293B] text-slate-400 hover:text-white border border-slate-700/60'
                 }`}
               >
                 {evt.year}
@@ -392,7 +395,7 @@ export const Timeline: React.FC = () => {
           <button
             onClick={() => navigateToEvent(Math.min(filteredEvents.length - 1, currentIdx + 1))}
             disabled={currentIdx === filteredEvents.length - 1}
-            className="p-2.5 bg-[#1A2B45] text-white hover:bg-[#223C63] disabled:opacity-30 rounded-lg border border-[#DCB35C]/30"
+            className="p-2.5 bg-[#1E293B] text-white hover:bg-[#283850] disabled:opacity-30 rounded-lg border border-slate-700/60 transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -36,29 +36,31 @@ export const Drawer: React.FC<DrawerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-[350] flex justify-end bg-[#0E1624]/80 backdrop-blur-sm"
+      className="fixed inset-0 z-[350] flex justify-end bg-[#0A0F1D]/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className={`w-full ${width} h-full bg-[#1A2B45] border-l-2 border-dashed border-[#DCB35C] shadow-2xl flex flex-col transform transition-transform duration-300 ease-out`}
+        className={`w-full ${width} h-full bg-[#1E293B] border-l border-slate-700/80 shadow-2xl flex flex-col transform transition-transform duration-300 ease-out`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-6 border-b border-[#DCB35C]/20 flex items-center justify-between bg-[#121E33]">
+        <div className="p-6 border-b border-slate-700/60 flex items-center justify-between bg-[#152033]">
           <div>
-            <span className="selvedge-tape text-[10px] mb-1.5 inline-block">SOURCE PROVENANCE</span>
+            <span className="text-[11px] font-mono text-[#DCB35C] uppercase tracking-wider mb-1 inline-block">
+              Source Provenance
+            </span>
             <h3 className="font-serif text-lg font-bold text-white">{title}</h3>
-            {subtitle && <p className="font-mono text-xs text-[#f0c36d] mt-0.5">{subtitle}</p>}
+            {subtitle && <p className="font-mono text-xs text-slate-400 mt-0.5">{subtitle}</p>}
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-[#B8C8DF] hover:text-[#DCB35C] rounded-lg transition-colors focus:outline-none"
+            className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors focus:outline-none"
             aria-label="Close panel"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 text-slate-300">
           {children}
         </div>
       </div>

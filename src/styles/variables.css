@@ -1,86 +1,80 @@
 /* ===================================================================
-   SMRITI SETU DESIGN SYSTEM: DENIM AND INDUSTRIAL CRAFT
-   Authored with senior frontend craft, optical precision, and heritage
+   SMRITI SETU DESIGN SYSTEM — CLEAN MINIMALIST TOKENS
    =================================================================== */
 
 :root {
   /* Brand Color Palette */
-  --color-primary: #223C63;       /* Indigo Wash: Primary background surface */
-  --color-secondary: #FFFFFF;     /* Pure Weft: Primary text & contrast */
-  --color-accent: #DCB35C;        /* Brass Accent: Primary CTA & interactive elements */
-  --color-dark-wash: #1A2B45;     /* Dark Wash: Deep contrast surface */
-  --color-deep-indigo: #121E33;   /* Raw Selvedge: Shadow & deep container base */
-  --color-thread-gold: #f0c36d;   /* Golden Thread: Decorative embroidery & stitch lines */
-  --color-leather: #8B4513;       /* Tanned Leather: Patches & heritage stamps */
-  --color-leather-dark: #66320C;  /* Burnished Leather */
-  --color-rivet-copper: #B87333;  /* Rivet Copper: Hardware, metallic eyelets */
-  --color-rivet-highlight: #DE9352;
-  --color-selvedge-red: #C93B2B;  /* Authentic Selvedge ID Red Ticker Line */
-  --color-charcoal-offblack: #0E1624; /* Strict: No pure black (#000000) */
-  --color-text-muted: #B8C8DF;   /* Subdued text for readability */
-  --color-text-dim: #7C90AF;     /* Metadata / serial numbers */
-  --color-canvas-light: #F4EEDC; /* Raw ecru cotton canvas */
-  --color-canvas-card: #1E3354;  /* Card surface */
-  --color-border-subtle: rgba(220, 179, 92, 0.25);
+  --color-primary: #0F172A;        /* Slate-900: Clean dark background */
+  --color-secondary: #FFFFFF;      /* White: Primary text */
+  --color-accent: #DCB35C;         /* Brass: Primary CTA */
+  --color-dark-wash: #1E293B;      /* Slate-800: Card surfaces */
+  --color-deep-indigo: #0F172A;    /* Slate-900: Deep containers */
+  --color-thread-gold: #f0c36d;    /* Gold thread: Subtle decorative */
+  --color-rivet-copper: #B87333;   /* Copper: Minimal use */
+  --color-selvedge-red: #C93B2B;   /* Red accent line */
+  --color-charcoal-offblack: #020617; /* Slate-950: Footer */
+  --color-text-muted: #94A3B8;    /* Slate-400: Body text */
+  --color-text-dim: #64748B;      /* Slate-500: Metadata */
+  --color-canvas-light: #F8FAFC;  /* Slate-50 */
+  --color-canvas-card: #1E293B;   /* Card surface */
+  --color-border-subtle: rgba(148, 163, 184, 0.15);
+  --color-neutral: #1E293B;
   
-  /* Typography Tokens */
+  /* Typography — 2 fonts only */
   --font-display: 'Roboto Slab', serif;
-  --font-body: 'Roboto Slab', serif;
+  --font-body: 'Inter', 'Roboto Slab', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Type Scale */
-  --text-hero: clamp(2.5rem, 5vw, 4rem);
-  --text-h1: 2.25rem;
+  /* Type Scale — 5 sizes only */
+  --text-hero: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-h1: 2rem;
   --text-h2: 1.5rem;
   --text-h3: 1.25rem;
   --text-body: 1rem;
   --text-small: 0.875rem;
   --text-micro: 0.75rem;
   --line-height-body: 1.6;
-  --line-height-tight: 1.15;
-  --max-ch: 72ch;
+  --line-height-tight: 1.2;
+  --max-ch: 65ch;
 
-  /* Spacing System (Base Unit: 0.5rem = 8px) */
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-5: 1.25rem;  /* 20px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-10: 2.5rem;  /* 40px */
-  --space-12: 3rem;    /* 48px */
-  --space-16: 4rem;    /* 64px */
-  --space-20: 5rem;    /* 80px */
-  --space-section-gap: clamp(4rem, 8vw, 8rem);
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-section-gap: clamp(4rem, 8vw, 7rem);
 
-  /* Layout & Containment */
-  --container-max-width: 1280px;
+  /* Layout */
+  --container-max-width: 1200px;
   --container-padding: 1.5rem;
 
   /* Radii */
-  --radius-base: 8px; /* 0.5rem base corner radius */
-  --radius-sm: 4px;
-  --radius-lg: 12px;
+  --radius-base: 12px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
   --radius-pill: 9999px;
 
-  /* Stitching & Borders */
-  --stitch-gold: 1.5px dashed var(--color-thread-gold);
-  --stitch-accent: 2px dashed var(--color-accent);
-  --stitch-white: 1.5px dashed rgba(255, 255, 255, 0.4);
+  /* Borders — solid only, no dashed */
+  --border-card: 1px solid rgba(148, 163, 184, 0.12);
+  --border-accent: 1px solid rgba(220, 179, 92, 0.25);
 
-  /* Shadows & Elevation */
-  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.2);
-  --shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-leather: 2px 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 10px 25px rgba(0, 0, 0, 0.25);
+  --shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 
-  /* Transitions & Physics */
-  --transition-fast: 200ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
 
-  /* z-Index Contract */
+  /* z-Index */
   --z-base: 0;
   --z-sticky-nav: 100;
   --z-overlay: 200;

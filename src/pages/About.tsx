@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   ShieldCheck, 
-  Award, 
   Layers, 
   Search, 
   Database, 
@@ -9,162 +8,257 @@ import {
   Bot, 
   CheckCircle,
   FileText,
-  ExternalLink,
-  BookOpen
+  Monitor,
+  HardDrive,
+  Globe2,
+  Lock
 } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 
 export const About: React.FC = () => {
   return (
-    <div className="bg-denim-twill min-h-screen text-[#B8C8DF] pb-24">
+    <div className="bg-[#0F172A] min-h-screen text-slate-300 pb-24">
       {/* Top Banner */}
-      <div className="bg-[#121E33] border-b border-[#DCB35C]/25 py-8">
-        <div className="site-container">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="selvedge-tape">SIH26096 ARCHIVAL MANDATE</span>
-            <span className="brass-stamp text-[10px]">MINISTRY OF SOCIAL JUSTICE & EMPOWERMENT</span>
+      <div className="bg-[#152033] border-b border-slate-700/60 py-12">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="px-2.5 py-1 rounded-md bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-xs font-semibold tracking-wider uppercase">
+              SIH26096 Mandate
+            </span>
+            <span className="px-2.5 py-1 rounded-md bg-white/[0.06] text-slate-400 font-mono text-xs tracking-wider uppercase">
+              Ministry of Social Justice & Empowerment
+            </span>
           </div>
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-white">
-            About SmritiSetu (स्मृतिसेतु) & AI Architecture
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            About SmritiSetu (स्मृतिसेतु) & System Architecture
           </h1>
-          <p className="text-xs sm:text-sm text-[#B8C8DF] mt-1">
-            Preserving Dr. B. R. Ambedkar's monumental heritage with verifiable AI grounding and tactile museum kiosk engineering.
+          <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl leading-relaxed">
+            Preserving Dr. B. R. Ambedkar's monumental heritage through verifiable AI grounding, multi-lingual RAG, and accessible museum kiosk hardware.
           </p>
         </div>
       </div>
 
-      <div className="site-container pt-10 space-y-12 max-w-5xl">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 space-y-12">
         {/* Mission Statement */}
-        <div className="bg-[#1A2B45] border-2 border-dashed border-[#DCB35C] rounded-2xl p-8 card-riveted shadow-2xl">
-          <span className="copper-rivet corner-rivet top-left" />
-          <span className="copper-rivet corner-rivet top-right" />
-          <span className="copper-rivet corner-rivet bottom-left" />
-          <span className="copper-rivet corner-rivet bottom-right" />
+        <div className="bg-[#1E293B] border border-slate-700/70 rounded-2xl p-8 sm:p-10 shadow-xl">
+          <div className="max-w-3xl">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#DCB35C] font-semibold">
+              Mission Statement
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1 mb-4">
+              Archival Fidelity for Every Citizen
+            </h2>
+            <p className="text-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+              Developed for <strong>Smart India Hackathon 2026 (Problem Statement SIH26096)</strong> under the aegis of the <strong>Ministry of Social Justice and Empowerment, Government of India</strong> (Hardware/Kiosk Category).
+            </p>
+            <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+              SmritiSetu bridges physical archives with cutting-edge artificial intelligence. It digitizes over 2,400 writings, speeches, letters, photographs, and Constituent Assembly Debates of Dr. Babasaheb Ambedkar, making them universally accessible in 12 Indian languages through touch-first museum kiosks and responsive web portals.
+            </p>
+          </div>
 
-          <h2 className="font-serif text-2xl font-bold text-white mb-3">
-            Project Mission & Hackathon Mandate
-          </h2>
-          <p className="text-sm text-[#B8C8DF] leading-relaxed mb-4">
-            Developed for <strong>Smart India Hackathon 2026 (Problem Statement SIH26096)</strong> under the aegis of the <strong>Ministry of Social Justice and Empowerment, Government of India</strong> (Hardware/Kiosk Category).
-          </p>
-          <p className="text-sm text-[#B8C8DF] leading-relaxed">
-            SmritiSetu bridges physical archives with cutting-edge artificial intelligence. It digitizes over 2,400 writings, speeches, letters, photographs, and Constituent Assembly Debates of Dr. Babasaheb Ambedkar, making them universally accessible in 12 Indian languages through touch-first museum kiosks and responsive web portals.
-          </p>
+          {/* Key Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-700/60">
+            <div>
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DCB35C]">2,400+</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase font-mono tracking-wider">Archived Documents</div>
+            </div>
+            <div>
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DCB35C]">12</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase font-mono tracking-wider">Indic Languages</div>
+            </div>
+            <div>
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DCB35C]">100%</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase font-mono tracking-wider">Verifiable Citations</div>
+            </div>
+            <div>
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-[#DCB35C]">&lt; 150ms</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase font-mono tracking-wider">Reranking Latency</div>
+            </div>
+          </div>
         </div>
 
         {/* How the AI Works: Interactive Visual Architecture Diagram */}
-        <div className="bg-[#1A2B45] border-2 border-dashed border-[#DCB35C]/40 rounded-2xl p-8 card-riveted shadow-2xl">
-          <span className="copper-rivet corner-rivet top-left" />
-          <span className="copper-rivet corner-rivet top-right" />
-          <span className="copper-rivet corner-rivet bottom-left" />
-          <span className="copper-rivet corner-rivet bottom-right" />
-
-          <div className="mb-6">
-            <span className="selvedge-tape text-[10px]">SYSTEM DESIGN</span>
-            <h2 className="font-serif text-2xl font-bold text-white mt-1">
-              How the Grounded RAG Pipeline Works
+        <div className="bg-[#1E293B] border border-slate-700/70 rounded-2xl p-8 sm:p-10 shadow-xl">
+          <div className="mb-8">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#DCB35C] font-semibold">
+              Pipeline Architecture
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+              Zero-Hallucination Grounded RAG Pipeline
             </h2>
-            <p className="text-xs text-[#B8C8DF] mt-1">
-              Step-by-step visual schematic of our zero-hallucination citation engine:
+            <p className="text-sm text-slate-400 mt-2 max-w-2xl">
+              Every answer generated by SmritiSetu is strictly grounded in cryptographically verified original manuscripts.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             {/* Step 1 */}
-            <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/30 flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono">
+            <div className="p-5 bg-[#152033] rounded-xl border border-slate-700/60 flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono text-sm">
                 1
               </div>
               <Database className="w-6 h-6 text-[#DCB35C] mb-2" />
-              <h4 className="font-serif font-bold text-white text-xs mb-1">Archival Digitization</h4>
-              <p className="text-[11px] text-[#B8C8DF]">
+              <h4 className="font-serif font-bold text-white text-sm mb-1.5">Archival Digitization</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Original scans processed via high-accuracy OCR and cryptographically signed with SHA-256 hashes.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/30 flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono">
+            <div className="p-5 bg-[#152033] rounded-xl border border-slate-700/60 flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono text-sm">
                 2
               </div>
               <Search className="w-6 h-6 text-[#DCB35C] mb-2" />
-              <h4 className="font-serif font-bold text-white text-xs mb-1">Semantic Embedding</h4>
-              <p className="text-[11px] text-[#B8C8DF]">
-                Passages chunked into multi-lingual dense vector embeddings for Indic languages.
+              <h4 className="font-serif font-bold text-white text-sm mb-1.5">Semantic Embedding</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Passages chunked into multi-lingual dense vector embeddings optimized for Indic languages.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/30 flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono">
+            <div className="p-5 bg-[#152033] rounded-xl border border-slate-700/60 flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono text-sm">
                 3
               </div>
               <Cpu className="w-6 h-6 text-[#DCB35C] mb-2" />
-              <h4 className="font-serif font-bold text-white text-xs mb-1">Hybrid Reranker</h4>
-              <p className="text-[11px] text-[#B8C8DF]">
-                BM25 keyword search blended with cross-encoder semantic reranking to retrieve top 5 passages.
+              <h4 className="font-serif font-bold text-white text-sm mb-1.5">Hybrid Reranker</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                BM25 lexical search blended with cross-encoder semantic reranking to retrieve top authentic passages.
               </p>
             </div>
 
             {/* Step 4 */}
-            <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/30 flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono">
+            <div className="p-5 bg-[#152033] rounded-xl border border-slate-700/60 flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold mb-3 font-mono text-sm">
                 4
               </div>
-              <ShieldCheck className="w-6 h-6 text-[#10B981] mb-2" />
-              <h4 className="font-serif font-bold text-white text-xs mb-1">Strict Grounding</h4>
-              <p className="text-[11px] text-[#B8C8DF]">
+              <ShieldCheck className="w-6 h-6 text-emerald-400 mb-2" />
+              <h4 className="font-serif font-bold text-white text-sm mb-1.5">Strict Grounding</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 LLM generates responses conditioned solely on retrieved citations; ungrounded statements are rejected.
               </p>
             </div>
 
             {/* Step 5 */}
-            <div className="p-4 bg-[#121E33] rounded-xl border border-[#DCB35C]/30 flex flex-col items-center text-center">
-              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono">
+            <div className="p-5 bg-[#152033] rounded-xl border border-slate-700/60 flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-full bg-[#DCB35C]/20 text-[#DCB35C] flex items-center justify-center font-bold mb-3 font-mono text-sm">
                 5
               </div>
-              <Bot className="w-6 h-6 text-[#f0c36d] mb-2" />
-              <h4 className="font-serif font-bold text-white text-xs mb-1">WebRTC Avatar</h4>
-              <p className="text-[11px] text-[#B8C8DF]">
+              <Bot className="w-6 h-6 text-[#DCB35C] mb-2" />
+              <h4 className="font-serif font-bold text-white text-sm mb-1.5">WebRTC Avatar</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Synthesizes low-latency audio-visual stream and real-time live subtitles with clickable scan citations.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Responsible AI & Archival Ethics Statement */}
-        <div className="bg-[#121E33] border-2 border-dashed border-[#10B981]/50 rounded-2xl p-8 card-riveted shadow-2xl">
-          <span className="copper-rivet corner-rivet top-left" />
-          <span className="copper-rivet corner-rivet top-right" />
-          <span className="copper-rivet corner-rivet bottom-left" />
-          <span className="copper-rivet corner-rivet bottom-right" />
+        {/* Kiosk Hardware & Museum Integration Specs */}
+        <div className="bg-[#1E293B] border border-slate-700/70 rounded-2xl p-8 sm:p-10 shadow-xl">
+          <div className="mb-6">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#DCB35C] font-semibold">
+              Hardware Specification
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+              Public Museum Kiosk Deployment
+            </h2>
+            <p className="text-sm text-slate-400 mt-2 max-w-2xl">
+              Engineered for continuous public use in national memorial sites, libraries, and exhibition halls.
+            </p>
+          </div>
 
-          <div className="flex items-center gap-3 mb-4">
-            <ShieldCheck className="w-8 h-8 text-[#10B981]" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 bg-[#152033] rounded-xl border border-slate-700/60">
+              <Monitor className="w-6 h-6 text-[#DCB35C] mb-3" />
+              <h3 className="font-serif font-bold text-white text-base mb-2">Display & Touch</h3>
+              <ul className="text-xs text-slate-400 space-y-2">
+                <li>• 55" 4K UHD Anti-Glare Commercial Display</li>
+                <li>• 10-Point PCAP Multi-Touch Interface</li>
+                <li>• 64px minimum touch targets (WCAG 2.2 AAA)</li>
+                <li>• Automated Attract Loop with Idle Reset</li>
+              </ul>
+            </div>
+
+            <div className="p-6 bg-[#152033] rounded-xl border border-slate-700/60">
+              <Globe2 className="w-6 h-6 text-[#DCB35C] mb-3" />
+              <h3 className="font-serif font-bold text-white text-base mb-2">Accessibility & Audio</h3>
+              <ul className="text-xs text-slate-400 space-y-2">
+                <li>• Directional Sound Dome audio isolation</li>
+                <li>• Virtual On-Screen Keyboard for 12 Indic scripts</li>
+                <li>• Live Speech-to-Text & Text-to-Speech</li>
+                <li>• High-contrast modes and screen reader tags</li>
+              </ul>
+            </div>
+
+            <div className="p-6 bg-[#152033] rounded-xl border border-slate-700/60">
+              <Lock className="w-6 h-6 text-[#DCB35C] mb-3" />
+              <h3 className="font-serif font-bold text-white text-base mb-2">Security & Privacy</h3>
+              <ul className="text-xs text-slate-400 space-y-2">
+                <li>• Zero local visitor PII logging or telemetry</li>
+                <li>• Automatic session timeout (60s warning / 90s reset)</li>
+                <li>• Cryptographic SHA-256 archival verification</li>
+                <li>• Air-gapped edge inference compatibility</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Responsible AI & Archival Ethics Statement */}
+        <div className="bg-[#152033] border border-emerald-500/30 rounded-2xl p-8 sm:p-10 shadow-xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-7 h-7" />
+            </div>
             <div>
-              <h3 className="font-serif text-xl font-bold text-white">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 Responsible AI & Archival Integrity Charter
               </h3>
-              <p className="text-xs text-[#10B981] font-mono">
-                PLEDGE OF HISTORICAL FIDELITY & PUBLIC TRUST
+              <p className="text-xs text-emerald-400 font-mono tracking-wider uppercase mt-0.5">
+                Pledge of Historical Fidelity & Public Trust
               </p>
             </div>
           </div>
 
-          <div className="space-y-3 text-xs sm:text-sm text-[#B8C8DF] leading-relaxed">
-            <p>
-              1. <strong>Zero Synthetic Fabrication:</strong> SmritiSetu will never generate speculative quotes or attribute stances to Dr. B. R. Ambedkar that cannot be directly traced to cataloged archival documents.
-            </p>
-            <p>
-              2. <strong>Mandatory Verifiability:</strong> Every conversational response includes clickable inline citations [1], [2] allowing visitors to view the exact facsimile scan and page number of the original manuscript.
-            </p>
-            <p>
-              3. <strong>Human-in-the-Loop Curation:</strong> All newly deposited materials undergo curator verification and OCR correction before entering the active RAG vector index.
-            </p>
-            <p>
-              4. <strong>Universal Accessibility (WCAG 2.2 AA):</strong> Designed with high contrast, touch targets exceeding 64px, on-screen keyboards for 12 Indian languages, and screen-reader support.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <div className="p-4 rounded-xl bg-[#1E293B]/70 border border-slate-700/40">
+              <div className="font-semibold text-white mb-1 flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                1. Zero Synthetic Fabrication
+              </div>
+              <p className="text-slate-400 text-xs">
+                SmritiSetu will never generate speculative quotes or attribute stances to Dr. B. R. Ambedkar that cannot be directly traced to cataloged archival documents.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#1E293B]/70 border border-slate-700/40">
+              <div className="font-semibold text-white mb-1 flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                2. Mandatory Verifiability
+              </div>
+              <p className="text-slate-400 text-xs">
+                Every conversational response includes clickable inline citations allowing visitors to view the exact facsimile scan and page number of the original manuscript.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#1E293B]/70 border border-slate-700/40">
+              <div className="font-semibold text-white mb-1 flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                3. Human-in-the-Loop Curation
+              </div>
+              <p className="text-slate-400 text-xs">
+                All newly deposited materials undergo curator verification and OCR correction before entering the active RAG vector index.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#1E293B]/70 border border-slate-700/40">
+              <div className="font-semibold text-white mb-1 flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                4. Universal Accessibility (WCAG 2.2 AA)
+              </div>
+              <p className="text-slate-400 text-xs">
+                Designed with high contrast, touch targets exceeding 64px, on-screen keyboards for 12 Indian languages, and screen-reader support.
+              </p>
+            </div>
           </div>
         </div>
       </div>

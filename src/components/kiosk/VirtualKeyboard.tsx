@@ -73,10 +73,12 @@ export const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({
     <div className="fixed bottom-0 left-0 right-0 z-[400] bg-[#0E1624]/95 border-t-2 border-[#DCB35C] p-3 md:p-5 shadow-2xl backdrop-blur-md animate-slideUp">
       <div className="max-w-4xl mx-auto flex flex-col gap-2">
         {/* Top Control Bar */}
-        <div className="flex items-center justify-between pb-2 border-b border-[#DCB35C]/20">
+        <div className="flex items-center justify-between pb-2 border-b border-slate-700/60">
           <div className="flex items-center gap-2">
-            <span className="selvedge-tape text-[10px]">KIOSK ON-SCREEN KEYBOARD</span>
-            <div className="flex bg-[#1A2B45] p-0.5 rounded border border-[#DCB35C]/30 text-xs">
+            <span className="px-2 py-0.5 rounded bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-[10px] font-semibold uppercase tracking-wider">
+              Kiosk On-Screen Keyboard
+            </span>
+            <div className="flex bg-[#1E293B] p-0.5 rounded border border-slate-700/60 text-xs">
               <button
                 onClick={() => setLayout('en')}
                 className={`px-3 py-1 rounded transition-colors ${

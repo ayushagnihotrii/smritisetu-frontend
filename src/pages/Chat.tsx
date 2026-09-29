@@ -219,21 +219,25 @@ export const Chat: React.FC = () => {
   };
 
   return (
-    <div className="bg-denim-twill min-h-screen text-[#B8C8DF] flex flex-col">
+    <div className="bg-[#0F172A] min-h-screen text-slate-300 flex flex-col">
       {/* Top Header */}
-      <div className="bg-[#121E33] border-b border-[#DCB35C]/25 py-4">
-        <div className="site-container flex items-center justify-between">
+      <div className="bg-[#152033] border-b border-slate-700/60 py-4">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#DCB35C]/15 border border-[#DCB35C]/40 flex items-center justify-center text-[#DCB35C]">
               <MessageSquare className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="selvedge-tape text-[9px]">GROUNDED RAG CHAT</span>
-                <span className="brass-stamp text-[10px]">100% CITED RECORDS</span>
+                <span className="px-2 py-0.5 rounded bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-[10px] font-semibold uppercase tracking-wider">
+                  Grounded RAG Chat
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/[0.06] text-slate-400 font-mono text-[10px] tracking-wider">
+                  100% Cited Records
+                </span>
               </div>
               <h1 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                Archival AI Q&A <span className="text-[#DCB35C] font-normal">| एआई प्रश्न मंच</span>
+                Archival AI Q&A <span className="text-[#DCB35C] font-normal text-lg">| एआई प्रश्न मंच</span>
               </h1>
             </div>
           </div>
@@ -262,10 +266,10 @@ export const Chat: React.FC = () => {
       </div>
 
       {/* Chat Messages Body */}
-      <div className="flex-1 site-container py-6 flex flex-col max-w-4xl w-full">
+      <div className="flex-1 max-w-[1000px] w-full mx-auto px-4 sm:px-6 py-8 flex flex-col">
         {messages.length === 0 ? (
           <div className="my-auto py-8 text-center space-y-6">
-            <div className="w-16 h-16 rounded-2xl bg-[#1A2B45] border-2 border-dashed border-[#DCB35C] flex items-center justify-center text-[#DCB35C] mx-auto shadow-2xl">
+            <div className="w-16 h-16 rounded-2xl bg-[#1E293B] border border-slate-700/80 flex items-center justify-center text-[#DCB35C] mx-auto shadow-xl">
               <Bot className="w-8 h-8" />
             </div>
 
@@ -273,22 +277,22 @@ export const Chat: React.FC = () => {
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
                 Ask Questions Grounded in Dr. Ambedkar's Archive
               </h2>
-              <p className="text-xs sm:text-sm text-[#B8C8DF] max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
                 Every response is derived strictly from historical speeches, writings, and Constituent Assembly Debates. Click any citation [1] to inspect original manuscripts.
               </p>
             </div>
 
             {/* Starter Prompts */}
             <div className="space-y-2 max-w-2xl mx-auto pt-2">
-              <span className="font-mono text-[10px] text-[#DCB35C] uppercase tracking-wider block">
-                SUGGESTED HISTORICAL INQUIRIES:
+              <span className="font-mono text-xs text-[#DCB35C] uppercase tracking-wider block font-semibold">
+                Suggested Historical Inquiries:
               </span>
               <div className="flex flex-col gap-2">
                 {starterList.map((prompt, pIdx) => (
                   <button
                     key={pIdx}
                     onClick={() => handleSendMessage(prompt)}
-                    className="p-3.5 bg-[#1A2B45] hover:bg-[#223C63] border border-[#DCB35C]/30 hover:border-[#DCB35C] rounded-xl text-left text-xs sm:text-sm text-white font-medium transition-all flex items-center justify-between group shadow-md"
+                    className="p-4 bg-[#1E293B] hover:bg-[#23354F] border border-slate-700/70 hover:border-slate-500 rounded-xl text-left text-sm text-white font-medium transition-all flex items-center justify-between group shadow-sm hover:shadow-md"
                   >
                     <span>{prompt}</span>
                     <Sparkles className="w-4 h-4 text-[#DCB35C] opacity-60 group-hover:opacity-100 shrink-0 ml-2" />
@@ -311,21 +315,21 @@ export const Chat: React.FC = () => {
                 )}
 
                 <div
-                  className={`max-w-[85%] sm:max-w-[78%] rounded-2xl p-5 shadow-xl ${
+                  className={`max-w-[85%] sm:max-w-[78%] rounded-2xl p-5 shadow-lg ${
                     msg.sender === 'user'
-                      ? 'bg-[#223C63] text-white border border-[#DCB35C]/30 rounded-tr-none'
-                      : 'bg-[#1A2B45] text-[#FBF9F4] border-2 border-dashed border-[#DCB35C]/40 rounded-tl-none card-riveted'
+                      ? 'bg-[#2563EB] text-white rounded-tr-none'
+                      : 'bg-[#1E293B] text-slate-100 border border-slate-700/80 rounded-tl-none'
                   }`}
                 >
                   {msg.sender === 'assistant' && (
-                    <div className="flex items-center justify-between border-b border-[#DCB35C]/20 pb-2 mb-3">
+                    <div className="flex items-center justify-between border-b border-slate-700/60 pb-2 mb-3">
                       <div className="flex items-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#f0c36d]" />
-                        <span className="font-mono text-[10px] text-[#f0c36d] uppercase tracking-wider">
-                          GROUNDED IN {msg.citations?.length || 2} ARCHIVAL SOURCES
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="font-mono text-[11px] text-emerald-400 uppercase tracking-wider">
+                          Grounded in {msg.citations?.length || 2} Archival Sources
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] text-[#7C90AF]">{msg.timestamp}</span>
+                      <span className="font-mono text-[10px] text-slate-500">{msg.timestamp}</span>
                     </div>
                   )}
 
@@ -335,18 +339,18 @@ export const Chat: React.FC = () => {
 
                   {/* Inline Citation Chips */}
                   {msg.citations && msg.citations.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-[#DCB35C]/20 flex flex-wrap gap-2">
-                      <span className="font-mono text-[10px] text-[#DCB35C] uppercase flex items-center gap-1">
-                        <FileText className="w-3 h-3" />
-                        SOURCES:
+                    <div className="mt-4 pt-3 border-t border-slate-700/60 flex flex-wrap gap-2">
+                      <span className="font-mono text-[10px] text-slate-400 uppercase flex items-center gap-1">
+                        <FileText className="w-3 h-3 text-[#DCB35C]" />
+                        Sources:
                       </span>
                       {msg.citations.map((cit) => (
                         <button
                           key={cit.id}
                           onClick={() => setActiveCitation(cit)}
-                          className="px-2.5 py-1 bg-[#121E33] hover:bg-[#DCB35C] text-[#B8C8DF] hover:text-[#0E1624] border border-[#DCB35C]/30 rounded text-xs font-mono transition-colors flex items-center gap-1.5"
+                          className="px-2.5 py-1 bg-[#152033] hover:bg-[#DCB35C] text-slate-300 hover:text-slate-950 border border-slate-700/60 rounded text-xs font-mono transition-colors flex items-center gap-1.5"
                         >
-                          <span className="font-bold text-[#f0c36d]">[{cit.index}]</span>
+                          <span className="font-bold text-[#DCB35C] hover:text-slate-950">[{cit.index}]</span>
                           <span className="truncate max-w-[180px]">{cit.docTitle}</span>
                         </button>
                       ))}
@@ -355,7 +359,7 @@ export const Chat: React.FC = () => {
                 </div>
 
                 {msg.sender === 'user' && (
-                  <div className="w-9 h-9 rounded-xl bg-[#1A2B45] text-[#DCB35C] border border-[#DCB35C]/40 flex items-center justify-center font-bold shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[#1E293B] text-slate-300 border border-slate-700/60 flex items-center justify-center font-bold shrink-0">
                     <User className="w-4 h-4" />
                   </div>
                 )}
@@ -374,18 +378,18 @@ export const Chat: React.FC = () => {
       </div>
 
       {/* Input Bar & Voice Waveform */}
-      <div className="sticky bottom-0 bg-[#0E1624] border-t-2 border-[#DCB35C]/40 p-3 sm:p-4 backdrop-blur-md">
-        <div className="site-container max-w-4xl">
+      <div className="sticky bottom-0 bg-[#0F172A]/95 border-t border-slate-700/60 p-3 sm:p-4 backdrop-blur-md">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
           {/* Audio Waveform Canvas while listening */}
           {isRecording && (
-            <div className="mb-2 p-2 bg-[#1A2B45] rounded-xl border border-[#DCB35C] flex items-center gap-3">
+            <div className="mb-2 p-2 bg-[#1E293B] rounded-xl border border-slate-700 flex items-center gap-3">
               <span className="font-mono text-xs text-[#DCB35C] animate-pulse">
                 LISTENING (AUDIO WAVEFORM)...
               </span>
               <canvas ref={canvasRef} width={260} height={24} className="h-6 w-48 rounded" />
               <button
                 onClick={stopAudioWaveform}
-                className="ml-auto text-xs font-mono text-[#FF8577] hover:underline"
+                className="ml-auto text-xs font-mono text-rose-400 hover:underline"
               >
                 Stop
               </button>
@@ -395,7 +399,7 @@ export const Chat: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowKeyboard(!showKeyboard)}
-              className="p-3 bg-[#1A2B45] text-[#B8C8DF] hover:text-[#DCB35C] border border-[#DCB35C]/30 rounded-xl"
+              className="p-3 bg-[#1E293B] text-slate-400 hover:text-white border border-slate-700/80 rounded-xl transition-colors"
               title="Toggle Touch Keyboard"
             >
               <KeyboardIcon className="w-5 h-5" />
@@ -405,8 +409,8 @@ export const Chat: React.FC = () => {
               onClick={isRecording ? stopAudioWaveform : startAudioWaveform}
               className={`p-3 rounded-xl border transition-colors ${
                 isRecording
-                  ? 'bg-[#FF8577]/20 border-[#FF8577] text-[#FF8577]'
-                  : 'bg-[#1A2B45] border-[#DCB35C]/30 text-[#DCB35C] hover:bg-[#223C63]'
+                  ? 'bg-rose-500/20 border-rose-500 text-rose-400'
+                  : 'bg-[#1E293B] border-slate-700/80 text-[#DCB35C] hover:bg-[#283850]'
               }`}
               title="Voice Input (Mic)"
             >
@@ -421,14 +425,14 @@ export const Chat: React.FC = () => {
               onFocus={() => setShowKeyboard(true)}
               placeholder="Ask a question about Dr. Ambedkar's writings, speeches, or ideas..."
               disabled={isStreaming}
-              className="flex-1 px-4 py-3.5 bg-[#121E33] border border-[#DCB35C]/40 rounded-xl text-white placeholder-[#7C90AF] text-sm focus:outline-none focus:ring-2 focus:ring-[#DCB35C]"
+              className="flex-1 px-4 py-3 bg-[#1E293B] border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#DCB35C] transition-colors"
             />
 
             <Button
               onClick={() => handleSendMessage()}
               variant="primary"
               disabled={!inputValue.trim() || isStreaming}
-              className="px-5 py-3.5"
+              className="px-5 py-3"
               icon={<Send className="w-4 h-4" />}
             >
               Send

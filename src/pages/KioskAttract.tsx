@@ -147,11 +147,13 @@ export const KioskAttract: React.FC = () => {
             </div>
           </div>
 
-          <div className="hidden sm:flex items-center gap-3">
-            <span className="selvedge-tape">MINISTRY OF SOCIAL JUSTICE & EMPOWERMENT</span>
-            <span className="brass-stamp">
-              <Shield className="w-3.5 h-3.5 text-[#f0c36d]" />
-              NATIONAL HERITAGE ARCHIVE
+          <div className="hidden sm:flex items-center gap-2">
+            <span className="px-3 py-1 rounded-md bg-[#DCB35C]/15 text-[#DCB35C] font-mono text-xs font-semibold uppercase tracking-wider">
+              Ministry of Social Justice & Empowerment
+            </span>
+            <span className="px-3 py-1 rounded-md bg-white/[0.06] text-slate-300 font-mono text-xs tracking-wider flex items-center gap-1.5">
+              <Shield className="w-3.5 h-3.5 text-[#DCB35C]" />
+              National Heritage Archive
             </span>
           </div>
         </div>

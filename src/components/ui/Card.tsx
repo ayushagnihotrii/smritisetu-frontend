@@ -1,40 +1,33 @@
 import React from 'react';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'stitched' | 'riveted' | 'leather' | 'parchment';
+  variant?: 'default' | 'subtle' | 'elevated' | 'interactive' | 'stitched' | 'riveted' | 'leather' | 'parchment';
   children: React.ReactNode;
   className?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
-  variant = 'stitched',
+  variant = 'default',
   children,
   className = '',
   ...props
 }) => {
-  if (variant === 'leather') {
-    return (
-      <div className={`leather-patch p-6 ${className}`} {...props}>
-        {children}
-      </div>
-    );
+  const baseClasses = 'bg-[#1E293B]/80 border border-slate-700/60 rounded-xl p-6 transition-all duration-200';
+  
+  let variantClasses = '';
+  if (variant === 'elevated' || variant === 'riveted') {
+    variantClasses = 'shadow-xl hover:shadow-2xl hover:border-slate-600/80';
+  } else if (variant === 'interactive') {
+    variantClasses = 'hover:border-[#DCB35C]/60 hover:bg-[#1E293B] cursor-pointer shadow-md hover:shadow-xl';
+  } else if (variant === 'subtle') {
+    variantClasses = 'bg-[#131F33]/60 border-slate-800';
   }
-
-  const isRiveted = variant === 'riveted';
 
   return (
     <div
-      className={`stitched-card ${isRiveted ? 'card-riveted' : ''} p-6 relative ${className}`}
+      className={`${baseClasses} ${variantClasses} ${className}`}
       {...props}
     >
-      {isRiveted && (
-        <>
-          <span className="copper-rivet corner-rivet top-left" />
-          <span className="copper-rivet corner-rivet top-right" />
-          <span className="copper-rivet corner-rivet bottom-left" />
-          <span className="copper-rivet corner-rivet bottom-right" />
-        </>
-      )}
       {children}
     </div>
   );

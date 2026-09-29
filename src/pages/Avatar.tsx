@@ -142,22 +142,24 @@ export const Avatar: React.FC = () => {
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-[#070C15] select-none text-white font-sans flex flex-col justify-between">
       {/* 1. Mandatory Disclaimer Banner (Prominently Visible at Top) */}
-      <div className="absolute top-0 left-0 right-0 z-30 bg-[#0E1624]/90 border-b border-[#DCB35C]/30 px-4 py-2.5 backdrop-blur-md flex items-center justify-between">
+      <div className="absolute top-0 left-0 right-0 z-30 bg-[#0F172A]/95 border-b border-slate-700/60 px-4 py-2.5 backdrop-blur-md flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <ShieldAlert className="w-4 h-4 text-[#f0c36d]" />
-          <span className="font-mono text-xs font-semibold text-[#f0c36d] tracking-wide">
-            ETHICAL AI NOTICE:
+          <ShieldAlert className="w-4 h-4 text-[#DCB35C]" />
+          <span className="font-mono text-xs font-semibold text-[#DCB35C] tracking-wide">
+            Ethical AI Notice:
           </span>
-          <span className="text-xs text-[#B8C8DF] hidden sm:inline">
+          <span className="text-xs text-slate-400 hidden sm:inline">
             AI-generated representation strictly based on verified historical writings, speeches, and Constituent Assembly Debates.
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="selvedge-tape text-[9px]">WEBRTC 1080P STREAM</span>
-          <span className="brass-stamp text-[9px] text-[#10B981]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block mr-1" />
-            LIVE ARCHIVE
+          <span className="px-2 py-0.5 rounded bg-white/[0.06] text-slate-300 font-mono text-[10px] tracking-wider">
+            WebRTC 1080p Stream
+          </span>
+          <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-mono text-[10px] tracking-wider flex items-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-1.5 animate-pulse" />
+            Live Archive
           </span>
         </div>
       </div>
@@ -179,13 +181,7 @@ export const Avatar: React.FC = () => {
 
         {/* Center Portrait / Video Stream Frame */}
         <div className="relative z-10 flex flex-col items-center">
-          <div className="relative w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 rounded-full border-4 border-[#DCB35C] p-2 shadow-2xl bg-[#0E1624]">
-            {/* Corner Decorative Copper Rivets */}
-            <span className="copper-rivet corner-rivet top-left" />
-            <span className="copper-rivet corner-rivet top-right" />
-            <span className="copper-rivet corner-rivet bottom-left" />
-            <span className="copper-rivet corner-rivet bottom-right" />
-
+          <div className="relative w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 rounded-full border-4 border-[#DCB35C]/80 p-2 shadow-2xl bg-[#0E1624]">
             {/* Avatar Portrait with subtle life animations */}
             <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner bg-[#1A2B45]">
               <img
@@ -226,16 +222,16 @@ export const Avatar: React.FC = () => {
 
         {/* 3. Collapsible "Sources & Citations" Side Panel */}
         <div
-          className={`absolute right-4 top-16 bottom-28 w-80 sm:w-96 bg-[#1A2B45]/95 border-2 border-dashed border-[#DCB35C]/40 rounded-2xl p-5 shadow-2xl backdrop-blur-md z-20 flex flex-col justify-between transition-transform duration-300 ${
+          className={`absolute right-4 top-16 bottom-28 w-80 sm:w-96 bg-[#1E293B]/95 border border-slate-700/80 rounded-2xl p-5 shadow-2xl backdrop-blur-md z-20 flex flex-col justify-between transition-transform duration-300 ${
             showSourcesPanel ? 'translate-x-0' : 'translate-x-[105%]'
           }`}
         >
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-[#DCB35C]/20 mb-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-700/60 mb-4">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#10B981]" />
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 <span className="font-mono text-xs font-bold text-white uppercase tracking-wider">
-                  VERIFIED SOURCES ({activeSources.length})
+                  Verified Sources ({activeSources.length})
                 </span>
               </div>
               <button
@@ -246,22 +242,22 @@ export const Avatar: React.FC = () => {
               </button>
             </div>
 
-            <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+            <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
               {activeSources.map((source) => (
-                <div key={source.id} className="p-3 bg-[#121E33] rounded-xl border border-[#DCB35C]/25 text-xs">
+                <div key={source.id} className="p-3.5 bg-[#152033] rounded-xl border border-slate-700/60 text-xs">
                   <div className="flex items-center justify-between text-[#DCB35C] font-mono text-[10px] mb-1">
-                    <span>CITATION [{source.index}]</span>
-                    <span>YEAR {source.year}</span>
+                    <span>Citation [{source.index}]</span>
+                    <span>Year {source.year}</span>
                   </div>
                   <h4 className="font-serif font-bold text-white mb-1.5">{source.docTitle}</h4>
-                  <p className="text-[11px] text-[#B8C8DF] italic leading-relaxed mb-2 bg-[#0E1624] p-2 rounded border border-[#DCB35C]/15">
+                  <p className="text-[11px] text-slate-300 italic leading-relaxed mb-2 bg-[#0F172A] p-2 rounded border border-slate-800">
                     "{source.snippet.slice(0, 140)}..."
                   </p>
                   <a
                     href={`/archive?doc=${source.docId}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-[10px] text-[#f0c36d] hover:underline flex items-center gap-1"
+                    className="font-mono text-[10px] text-[#DCB35C] hover:underline flex items-center gap-1"
                   >
                     <span>View Archival Scan (Page {source.pageNumber})</span>
                     <ChevronRight className="w-3 h-3" />
@@ -271,8 +267,8 @@ export const Avatar: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#DCB35C]/20 text-[10px] font-mono text-[#7C90AF]">
-            ARCHIVAL INTEGRITY: ZERO SYNTHETIC HALLUCINATIONS
+          <div className="pt-3 border-t border-slate-700/60 text-[10px] font-mono text-slate-500">
+            Archival Integrity: Zero Synthetic Hallucinations
           </div>
         </div>
 
@@ -280,7 +276,7 @@ export const Avatar: React.FC = () => {
         {!showSourcesPanel && (
           <button
             onClick={() => setShowSourcesPanel(true)}
-            className="absolute right-4 top-20 z-20 px-3 py-2 bg-[#1A2B45] hover:bg-[#223C63] text-[#DCB35C] border border-[#DCB35C]/40 rounded-xl text-xs font-mono shadow-xl flex items-center gap-1"
+            className="absolute right-4 top-20 z-20 px-3 py-2 bg-[#1E293B] hover:bg-[#283850] text-[#DCB35C] border border-slate-700/80 rounded-xl text-xs font-mono shadow-xl flex items-center gap-1"
           >
             <ChevronLeft className="w-4 h-4" />
             <span>Show Sources</span>
@@ -290,34 +286,34 @@ export const Avatar: React.FC = () => {
 
       {/* 4. Streaming Subtitles Strip */}
       <div className="relative z-20 px-6 max-w-4xl mx-auto w-full mb-3 text-center">
-        <div className="bg-[#0E1624]/90 border border-[#DCB35C]/40 rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-md">
-          <p className="font-serif text-base sm:text-lg md:text-xl text-[#FBF9F4] leading-relaxed">
+        <div className="bg-[#0F172A]/90 border border-slate-700/80 rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-md">
+          <p className="font-serif text-base sm:text-lg md:text-xl text-white leading-relaxed">
             {subtitle}
           </p>
         </div>
       </div>
 
       {/* 5. Bottom Interactive Controls Deck */}
-      <div className="relative z-20 bg-[#0A111C] border-t-2 border-[#DCB35C]/40 px-6 py-4">
+      <div className="relative z-20 bg-[#0F172A] border-t border-slate-700/60 px-6 py-4">
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-4">
           {/* Quick Suggested Starter Inquiries */}
           <div className="hidden lg:flex items-center gap-2">
-            <span className="font-mono text-[10px] text-[#DCB35C] uppercase">INQUIRE:</span>
+            <span className="font-mono text-[10px] text-[#DCB35C] uppercase font-semibold">Inquire:</span>
             <button
               onClick={() => handleAskQuestion('Why is Article 32 the heart and soul of the Constitution?')}
-              className="px-2.5 py-1 rounded bg-[#1A2B45] hover:bg-[#223C63] border border-[#DCB35C]/30 text-xs text-white truncate max-w-[200px]"
+              className="px-3 py-1.5 rounded-lg bg-[#1E293B] hover:bg-[#283850] border border-slate-700/60 text-xs text-slate-300 hover:text-white truncate max-w-[200px] transition-colors"
             >
               Article 32 & Rights
             </button>
             <button
               onClick={() => handleAskQuestion('Explain the core thesis of Annihilation of Caste.')}
-              className="px-2.5 py-1 rounded bg-[#1A2B45] hover:bg-[#223C63] border border-[#DCB35C]/30 text-xs text-white truncate max-w-[200px]"
+              className="px-3 py-1.5 rounded-lg bg-[#1E293B] hover:bg-[#283850] border border-slate-700/60 text-xs text-slate-300 hover:text-white truncate max-w-[200px] transition-colors"
             >
               Annihilation of Caste
             </button>
             <button
               onClick={() => handleAskQuestion('What labor protections did you introduce in 1942?')}
-              className="px-2.5 py-1 rounded bg-[#1A2B45] hover:bg-[#223C63] border border-[#DCB35C]/30 text-xs text-white truncate max-w-[200px]"
+              className="px-3 py-1.5 rounded-lg bg-[#1E293B] hover:bg-[#283850] border border-slate-700/60 text-xs text-slate-300 hover:text-white truncate max-w-[200px] transition-colors"
             >
               8-Hour Workday Act
             </button>
@@ -331,7 +327,7 @@ export const Avatar: React.FC = () => {
                 variant="primary"
                 size="lg"
                 icon={<Square className="w-4 h-4 fill-current" />}
-                className="bg-[#C93B2B] hover:bg-[#a62b1e] text-white border-none font-bold"
+                className="bg-rose-600 hover:bg-rose-700 text-white border-none font-bold shadow-lg"
               >
                 Interrupt (Barge-In)
               </Button>
